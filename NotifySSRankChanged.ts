@@ -70,7 +70,8 @@ function UpdatePreviousRank(): void{
 function NotifyInitializePreviousRank(): void{
     const notification = new Notification();
     notification.title = "First Run"
-    notification.subtitle = `Add yourRank.txt to ${dataPath}`;
+    notification.subtitle = "Your Rank : " + nowRank.toString();
+    notification.body = `Add yourRank.txt to ${dataPath}`;
     notification.schedule();
 }
 
