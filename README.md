@@ -5,7 +5,7 @@ ScoreSaberの順位が変動した時にiOSで通知を出すスクリプト。
 iOSのみ対応で、アンドロイドは非対応です。  
 iOSの[Scriptable](https://scriptable.app)というアプリが必要です。  
 また、ファイルアプリとiCloudが連携している必要があります。  
-Scriptableのダウンロード後は、Releaseの.scriptableファイルをダウンロードしてください。  
+Scriptableのダウンロード後は、[Release](https://github.com/rakkyo150/NotifySSRankChanged/releases)の.scriptableファイルをダウンロードしてください。  
 その後、ファイルアプリのダウンロードフォルダに先ほどダウンロードしたscriptableファイルがあるはずなので、それを長押しして共有を押しましょう。  
 共有先にScriptableアプリがあるのでそれを選択して、Add to My Scriptsを押せば取り込みは完了です。  
 
