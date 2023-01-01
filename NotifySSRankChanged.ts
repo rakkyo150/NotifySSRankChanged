@@ -23,13 +23,16 @@ response.then((data:Player)=>{
     console.log("Now Rank " + nowRank);
     if (!iCloud.fileExists(dataPath)) {
         InitializePreviousRank();
+        Script.complete();
         return;
     }
     CompareAndNotify();
     UpdatePreviousRank();
+    Script.complete();
 }).catch((error)=>{
     console.error(error.message);
     NotifyError("Failed to get your data");
+    Script.complete();
 })
 
 function GetNowData(): Promise<any> {
