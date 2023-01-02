@@ -26,8 +26,7 @@ response.then((data:Player)=>{
         Script.complete();
         return;
     }
-    CompareAndNotify();
-    UpdatePreviousRank();
+    CompareAndNotifyAndUpdate();
     Script.complete();
 }).catch((error)=>{
     console.error(error.message);
@@ -49,7 +48,7 @@ function InitializePreviousRank(): void {
     NotifyInitializePreviousRank();
 }
 
-function CompareAndNotify(): void {
+function CompareAndNotifyAndUpdate(): void {
     const previousRankData: Promise<void> = iCloud.downloadFileFromiCloud(dataPath);
     previousRankData.then(()=>{
         if(Number.isNaN(Number(iCloud.readString(dataPath)))) return;
@@ -59,6 +58,7 @@ function CompareAndNotify(): void {
 
         if (previousRank != nowRank) {
             NotifyRankChange(previousRank, nowRank);
+            UpdatePreviousRank();
         }
     }).catch((error)=>{
         console.error(error);
