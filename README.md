@@ -7,7 +7,7 @@ iOSの[Scriptable](https://scriptable.app)というアプリが必要です。
 iOSでも設定にScriptableの通知設定がなかったら通知されません。  
 OSのバージョンのせいか、私のiPadにはScriptableの通知設定がありませんでした。  
 また、ファイルアプリとiCloudが連携している必要があります。  
-Scriptableのダウンロード後は、[Release](https://github.com/rakkyo150/NotifySSRankChanged/releases)の.scriptableファイルをダウンロードしてください。  
+Scriptableのダウンロード後は、[Releases](https://github.com/rakkyo150/NotifySSRankChanged/releases)の.scriptableファイルをダウンロードしてください。  
 その後、ファイルアプリのダウンロードフォルダに先ほどダウンロードしたscriptableファイルがあるはずなので、それを長押しして共有を押しましょう。  
 共有先にScriptableアプリがあるのでそれを選択して、Add to My Scriptsを押せば取り込みは完了です。  
 
