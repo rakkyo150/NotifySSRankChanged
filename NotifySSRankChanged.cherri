@@ -7,31 +7,39 @@
 #include 'actions/text'
 
 const playerId = "76561199070578780"
+// 世界ランク
+// const rank = "rank"
+const rank = "countryRank"
 
 @dataPath = "SSRank.txt"
 
 @preRank = getFile(dataPath, false)
-@preRankText = "{preRank}"
 
 if preRank {
-    alert("Previous rank found: #{preRank}")
+    // alert("{dataPath} found!\n#{preRank}")
 } else {
-    alert("No previous rank data found. Creating new file.")
+    alert("{dataPath} Not Found.\n{dataPath} will be created")
 }
 
 const endpoint = "https://scoresaber.com/api/player/{playerId}/basic"
 
-alert(endpoint)
-
 @data = jsonRequest(endpoint)
 
-@newRank = getValue(data, "rank")
+@newRank = getValue(data, rank)
+
+if !newRank {
+    showNotification(data, "Error Request.")
+    stop()
+}
+
+@preRankText = "{preRank}"
 @newRankText = "{newRank}"
 
 if newRankText == preRankText {
-    showNotification("Fetching finished!", "No Rank Change Detected. Current Rank: #{newRank}")
+    // 削除でも可
+    showNotification("Current Rank: #{newRank}", "No Rank Change Detected.")
 }
 else {
-    showNotification("Overwriting SSRank.txt", "SS Rank Change: #{preRank} -> #{newRank}")
+    showNotification("#{preRank} -> #{newRank}\nOverwriting {dataPath}", "Rank Change Detected!")
     saveFile(dataPath, newRank, true)
 }
