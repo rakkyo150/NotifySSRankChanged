@@ -1,0 +1,37 @@
+#define glyph star
+#define color yellow
+
+#include 'actions/documents'
+#include 'actions/web'
+#include 'actions/scripting'
+#include 'actions/text'
+
+const playerId = "76561199070578780"
+
+@dataPath = "SSRank.txt"
+
+@preRank = getFile(dataPath, false)
+@preRankText = "{preRank}"
+
+if preRank {
+    alert("Previous rank found: #{preRank}")
+} else {
+    alert("No previous rank data found. Creating new file.")
+}
+
+const endpoint = "https://scoresaber.com/api/player/{playerId}/basic"
+
+alert(endpoint)
+
+@data = jsonRequest(endpoint)
+
+@newRank = getValue(data, "rank")
+@newRankText = "{newRank}"
+
+if newRankText == preRankText {
+    showNotification("Fetching finished!", "No Rank Change Detected. Current Rank: #{newRank}")
+}
+else {
+    showNotification("Overwriting SSRank.txt", "SS Rank Change: #{preRank} -> #{newRank}")
+    saveFile(dataPath, newRank, true)
+}
