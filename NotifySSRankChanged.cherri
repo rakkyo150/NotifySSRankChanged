@@ -1,0 +1,45 @@
+#define glyph star
+#define color yellow
+
+#include 'actions/documents'
+#include 'actions/web'
+#include 'actions/scripting'
+#include 'actions/text'
+
+const playerId = "76561199070578780"
+// 世界ランク
+// const rank = "rank"
+const rank = "countryRank"
+
+@dataPath = "SSRank.txt"
+
+@preRank = getFile(dataPath, false)
+
+if preRank {
+    // alert("{dataPath} found!\n#{preRank}")
+} else {
+    alert("{dataPath} Not Found.\n{dataPath} will be created")
+}
+
+const endpoint = "https://scoresaber.com/api/player/{playerId}/basic"
+
+@data = jsonRequest(endpoint)
+
+@newRank = getValue(data, rank)
+
+if !newRank {
+    showNotification(data, "Error Request.")
+    stop()
+}
+
+@preRankText = "{preRank}"
+@newRankText = "{newRank}"
+
+if newRankText == preRankText {
+    // 削除でも可
+    showNotification("Current Rank: #{newRank}", "No Rank Change Detected.")
+}
+else {
+    showNotification("#{preRank} -> #{newRank}\nOverwriting {dataPath}", "Rank Change Detected!")
+    saveFile(dataPath, newRank, true)
+}
