@@ -2,6 +2,8 @@
 ScoreSaberの順位が変動した時にiOSで通知を出すスクリプト。  
 v2.0.0からScriptableからショートカットに移行しました。
 
+![Notification](Notification.png)
+
 ## How to install
 AppleのOS対応で、アンドロイドは非対応です。  
 まず、もしショートカットアプリをダウンロードされていない人はApp Storeからダウンロードしてください。  
