@@ -41,7 +41,7 @@ scriptableファイルの取り込みが終わったら、scriptableアプリで
 
 ## For Developers
 このプロジェクトではTypeScriptを使用しています。  
-通常のTypeScript実行環境はググって整えてください。    
+通常のTypeScript実行環境はググって整えてください。  
 その後は、[こちら](https://github.com/gebeto/scriptables)のリポジトリをクローンしましょう。  
 shファイルでinitしたら、sourcesにtsファイル移しましょう(リンク貼るのでもうまくいくかも？)。  
 最後に`tsc --watch`をターミナルで実行すればいいかんじで動くと思います。  
